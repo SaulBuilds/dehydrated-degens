@@ -3,8 +3,22 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Container, Typography, Grid, Card, CardContent, CardActionArea, Box } from '@mui/material';
+import MintCard from '../components/MintCard';
 
-const Home: NextPage = () => {
+const Mint: NextPage = () => {
+  // Example NFT details - replace with actual data
+  const nftDetails = {
+    image: '/logo.svg', // Replace with the actual image path
+    name: 'theEmployableDevBadge',
+    description: 'Might help you learn something valuable enabling your broke ass to get a job',
+  };
+
+  // Example mint function - replace with actual minting logic
+  const handleMint = async () => {
+    console.log('Minting NFT...');
+    // Add your minting logic here
+  };
+
   return (
     <Container maxWidth="lg">
       <Head>
@@ -17,24 +31,16 @@ const Home: NextPage = () => {
         <ConnectButton />
 
         <Typography variant="h5" component="p" sx={{ mt: 2 }}>
-          I round tripped 20 bored apes...
+          I bought 70 moonbirds at the top why not...
         </Typography>
 
-        {/* Grid container for centering the card */}
         <Grid container justifyContent="center" spacing={4} sx={{ mt: 4 }}>
           <Grid item xs={12} sm={8} md={6} lg={4}>
-            <CardActionArea href="/mint">
-              <Card>
-                <CardContent>
-                  <Typography variant="h5" component="h2">
-                    Now I have to dev to learn how to pay my bills.
-                  </Typography>
-                  <Typography variant="body2">
-                    Drink Water... Do not buy Dehydrated Degens.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </CardActionArea>
+            <Card>
+              <CardContent>
+                <MintCard nft={nftDetails} onMint={handleMint} />
+              </CardContent>
+            </Card>
           </Grid>
         </Grid>
       </Box>
@@ -48,4 +54,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Mint;
